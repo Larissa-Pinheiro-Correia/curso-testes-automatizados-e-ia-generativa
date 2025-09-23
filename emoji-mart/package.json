@@ -9,12 +9,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "start": "node server/server.js"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
