@@ -1,23 +1,24 @@
-# Testes Automatizados e IA Generativa
+Exercicio 1
 
-👋 Seja bem-vindo(a)!
+**Exercicio 2**
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+- Criado um arquivo de teste com a describe ' GET/ CUSTOMERS ' que agrupa cenários do endpoint documentado no exercicio 1
+- Utilizada a URL base da API via Cypress.env('apiUrl') para deixar o teste independente de ambiente
+- Montei as URLs usando template literals (${baseUrl}/customers?...) conforme o requisito do curso
+- Em cada cy.request eu desestruturei a resposta retornada no .then(({ status, body }) => { ... }) e, quando preciso, desestruturei body em { customers, pageInfo } para usar apenas o que é necessário nas asserções
+- Testei explicitamente o status em todos os casos (200 para sucesso; 400 para requisições inválidas)
 
-## O que você vai aprender?
+**Decisões de design e vantagens da implementação**
 
-- Básico de engenharia de prompt
-- Técnicas avançadas de engenharia de prompt
-- Técnicas de _pre-prompting_
-- Ferramentas diversas de IA generativa
-- Engenharia de prompt aplicada à testes automatizados
-  - Escrita de testes automatizados de API com IA generativa
-  - Escrita de testes de interface gráfica de usuário com IA generativa
-  - Escrita de testes de componentes de _frontend_ com IA generativa
-  - Revisão de testes automatizados com IA generativa
-  - Análise de lacunas em testes automatizados com IA generativa
+- Desestruturação reduz verbosidade e deixa claro exatamente o que cada asserção usa (facilita manutenção)
 
-## Vamos começar?
+- Testar o status primeiro melhora a legibilidade do erro quando algo falha (você vê logo se foi problema de status ou conteúdo)
+
+- Usar Cypress.env torna os testes portáveis entre ambientes (local, staging, CI) sem mudar o código
+
+- Validar filtros diretamente nos objetos retornados (forEach + desestruturação) garante que o servidor aplicou os filtros em todos os registros retornados — é uma verificação funcional simples e eficaz
+
+
 
 Vá para a seção de [estrutura do curso](./lessons/_course-structure_.md).
 
